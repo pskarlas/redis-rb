@@ -30,9 +30,9 @@ class Redis
 
     protected
 
-      if defined?(Encoding::default_external)
+      if defined?(Encoding)
         def encode(string)
-          string.force_encoding(Encoding::default_external)
+          string.to_s.force_encoding(Encoding::BINARY)
         end
       else
         def encode(string)
